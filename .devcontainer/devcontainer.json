@@ -16,6 +16,10 @@
     // Installe la GitHub CLI
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
+    },
+    // Installe la Pulumi CLI
+    "ghcr.io/devcontainers-extra/features/pulumi:1": {
+      "version": "latest"
     }
   },
 

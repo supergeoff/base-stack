@@ -1,0 +1,80 @@
+// .devcontainer/devcontainer.json
+{
+  // Nom de votre environnement de développement (affiché dans VS Code / Codespaces)
+  "name": "Monorepo Nx (Node 22 + TS + GCP + Pulumi)",
+
+  // L'image Docker de base à utiliser
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+
+  // Fonctionnalités Dev Containers à ajouter à l'image de base
+  "features": {
+    // Permet d'utiliser la commande 'docker' depuis l'intérieur du conteneur
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+      "version": "latest",
+      "moby": false // Important: Ne pas réinstaller Docker, juste monter le socket
+    },
+    // Installe la Google Cloud CLI (gcloud)
+    "ghcr.io/devcontainers/features/google-cloud-cli:1": {
+       "version": "latest"
+    },
+    // Installe la Pulumi CLI
+     "ghcr.io/devcontainers-contrib/features/pulumi:1": {
+       "version": "latest"
+     }
+  },
+
+  // Personnalisations spécifiques aux outils
+  "customizations": {
+    // Configuration pour VS Code
+    "vscode": {
+      // Liste des extensions VS Code à installer automatiquement
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "nrwl.angular-console", // Nx Console
+        "bradlc.vscode-tailwindcss",
+        "github.copilot", // Copilot + Chat
+        "graphql.vscode-graphql",
+        "pulumi.pulumi",
+        "googlecloudtools.cloudcode", // GCP Tools
+        "ms-azuretools.vscode-docker", // Docker UI
+        "formulahendry.code-runner",
+        "spmeesseman.vscode-taskexplorer",
+        "Equinusocio.vsc-material-theme", // Material Theme + Icons
+        "postman.postman-for-vscode",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "pnpm.vscode-pnpm",
+        "wayou.vscode-todo-highlight",
+        "dotenv.dotenv-vscode",
+        "saoudrizwan.claude-dev" // Claude AI
+      ],
+      // Paramètres VS Code par défaut pour cet environnement
+      "settings": {
+        // Définir Prettier comme formateur par défaut
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        // Activer le formatage à la sauvegarde
+        "editor.formatOnSave": true,
+        // Appliquer le thème Material (UI et Icônes) par défaut
+        // Note: 'material-theme-icons-darker' est un ID potentiel pour les icônes de ce thème
+        "workbench.iconTheme": "material-theme-icons-darker",
+        "workbench.colorTheme": "Material Theme Darker High Contrast" // Exemple de thème UI
+      }
+    }
+  },
+
+  // Ports à transférer automatiquement du conteneur vers la machine locale
+  "forwardPorts": [3000, 3001], // Port Next.js et Port NestJS/Gateway principal
+
+  // Commande pour installer pnpm globalement (car non inclus dans l'image de base)
+  // 'updateContentCommand' est exécuté après le clonage du repo mais avant la finalisation
+  // Utilise npm (qui est présent) pour installer pnpm. 'sudo' peut être nécessaire.
+  "updateContentCommand": "sudo npm install -g pnpm",
+
+  // Définit l'utilisateur avec lequel VS Code se connectera dans le conteneur
+  // 'node' est l'utilisateur non-root commun dans l'image mcr.microsoft.com/devcontainers/typescript-node
+  "remoteUser": "node"
+
+  // 'postCreateCommand': Pas défini pour l'instant (pnpm install manuel)
+  // 'postStartCommand': Pas défini pour l'instant
+}

@@ -1,7 +1,7 @@
 // .devcontainer/devcontainer.json
 {
   // Nom de votre environnement de développement (affiché dans VS Code / Codespaces)
-  "name": "Monorepo Nx (Node 22 + TS + GCP + Pulumi)",
+  "name": "Monorepo Stack (Nx + Node 22 + TS + GCP + Pulumi)",
 
   // L'image Docker de base à utiliser
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
@@ -9,18 +9,14 @@
   // Fonctionnalités Dev Containers à ajouter à l'image de base
   "features": {
     // Permet d'utiliser la commande 'docker' depuis l'intérieur du conteneur
-    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
       "version": "latest",
       "moby": false // Important: Ne pas réinstaller Docker, juste monter le socket
     },
-    // Installe la Google Cloud CLI (gcloud)
-    "ghcr.io/devcontainers/features/google-cloud-cli:1": {
-       "version": "latest"
-    },
-    // Installe la Pulumi CLI
-     "ghcr.io/devcontainers-contrib/features/pulumi:1": {
-       "version": "latest"
-     }
+    // Installe la GitHub CLI
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
+    }
   },
 
   // Personnalisations spécifiques aux outils
@@ -69,7 +65,7 @@
   // Commande pour installer pnpm globalement (car non inclus dans l'image de base)
   // 'updateContentCommand' est exécuté après le clonage du repo mais avant la finalisation
   // Utilise npm (qui est présent) pour installer pnpm. 'sudo' peut être nécessaire.
-  "updateContentCommand": "sudo npm install -g pnpm",
+  //"updateContentCommand": "sudo npm install -g pnpm",
 
   // Définit l'utilisateur avec lequel VS Code se connectera dans le conteneur
   // 'node' est l'utilisateur non-root commun dans l'image mcr.microsoft.com/devcontainers/typescript-node

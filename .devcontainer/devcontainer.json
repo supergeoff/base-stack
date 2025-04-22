@@ -16,6 +16,9 @@
     },
     // Installe la Pulumi CLI
     "ghcr.io/devcontainers-extra/features/pulumi:1": {
+    },
+    // Instale la Google CLI
+    "ghcr.io/supergeoff/features/google-cli:1": {
     }
   },
 

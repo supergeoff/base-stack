@@ -68,7 +68,7 @@
   // Commande pour installer pnpm globalement (car non inclus dans l'image de base)
   // 'updateContentCommand' est exécuté après le clonage du repo mais avant la finalisation
   // Utilise npm (qui est présent) pour installer pnpm. 'sudo' peut être nécessaire.
-  // "updateContentCommand": "sudo npm install -g pnpm",
+  "updateContentCommand": "sudo npm install -g pnpm",
 
   // Définit l'utilisateur avec lequel VS Code se connectera dans le conteneur
   // 'node' est l'utilisateur non-root commun dans l'image mcr.microsoft.com/devcontainers/typescript-node

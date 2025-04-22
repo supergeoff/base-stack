@@ -9,17 +9,13 @@
   // Fonctionnalités Dev Containers à ajouter à l'image de base
   "features": {
     // Permet d'utiliser la commande 'docker' depuis l'intérieur du conteneur
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {
-      "version": "latest",
-      "moby": false // Important: Ne pas réinstaller Docker, juste monter le socket
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
     },
     // Installe la GitHub CLI
     "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest"
     },
     // Installe la Pulumi CLI
     "ghcr.io/devcontainers-extra/features/pulumi:1": {
-      "version": "latest"
     }
   },
 

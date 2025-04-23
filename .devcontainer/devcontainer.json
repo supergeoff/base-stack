@@ -40,6 +40,7 @@
         "postman.postman-for-vscode", // Extension Postman pour les requêtes API
         "pnpm.vscode-pnpm", // Extension PNPM pour la gestion des paquets
         "wayou.vscode-todo-highlight", // Mise en évidence des commentaires TODO
+        "dotenv.dotenv-vscode", // Gestionnaire de variable d'environnement
         "saoudrizwan.claude-dev" // Extension Claude AI pour l'assistance IA
       ],
       // Paramètres par défaut pour VS Code dans cet environnement

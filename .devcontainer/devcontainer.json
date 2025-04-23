@@ -1,74 +1,74 @@
+// Name of the development environment (displayed in VS Code and Codespaces)
 {
-  // Nom de l'environnement de développement (s'affiche dans VS Code et Codespaces)
   "name": "Monorepo Stack (Nx + Node 22 + TypeScript + GCP + Pulumi)",
 
-  // Image Docker de base utilisée pour l'environnement de développement
+  // Base Docker image used for the development environment
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
 
-  // Fonctionnalités supplémentaires à inclure dans le conteneur via Dev Containers
+  // Additional features to include in the container via Dev Containers
   "features": {
-    // Permet d'exécuter Docker à l'intérieur du conteneur (Docker-in-Docker)
+    // Allows running Docker inside the container (Docker-in-Docker)
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
-    // Installe le gestionnaire de paquets PNPM en global
+    // Installs the PNPM package manager globally
     "ghcr.io/devcontainers-extra/features/npm-packages:latest": {
       "packages": "pnpm,nx"
     },
-    // Installe la GitHub CLI pour interagir avec GitHub depuis la ligne de commande
+    // Installs the GitHub CLI to interact with GitHub from the command line
     "ghcr.io/devcontainers/features/github-cli:latest": {},
-    // Installe la CLI Pulumi pour l'infrastructure-as-code
+    // Installs the Pulumi CLI for infrastructure-as-code
     "ghcr.io/devcontainers-extra/features/pulumi:latest": {},
-    // Installe la CLI Google Cloud pour interagir avec les services Google Cloud
+    // Installs the Google Cloud CLI to interact with Google Cloud services
     "ghcr.io/supergeoff/features/google-cli:latest": {}
   },
 
-  // Personnalisations spécifiques aux outils et extensions
+  // Tool and extension-specific customizations
   "customizations": {
-    // Configuration dédiée à VS Code
+    // VS Code-specific configuration
     "vscode": {
-      // Liste des extensions VS Code installées automatiquement dans l'environnement
+      // List of VS Code extensions automatically installed in the environment
       "extensions": [
-        "dbaeumer.vscode-eslint", // ESLint pour le linting du code
-        "esbenp.prettier-vscode", // Prettier pour le formatage du code
-        "nrwl.angular-console", // Nx Console pour les projets monorepo (Angular/Nx)
-        "bradlc.vscode-tailwindcss", // Support Tailwind CSS
-        "graphql.vscode-graphql", // Support GraphQL
-        "pulumi.pulumi", // Extension Pulumi pour l'infrastructure-as-code
-        "googlecloudtools.cloudcode", // Outils Google Cloud (GCP) pour VS Code
-        "ms-azuretools.vscode-docker", // Interface Docker dans VS Code
-        "spmeesseman.vscode-taskexplorer", // Explorateur de tâches pour VS Code
-        "Equinusocio.vsc-material-theme", // Thème Material Design pour l'UI
-        "postman.postman-for-vscode", // Extension Postman pour les requêtes API
-        "pnpm.vscode-pnpm", // Extension PNPM pour la gestion des paquets
-        "wayou.vscode-todo-highlight", // Mise en évidence des commentaires TODO
-        "dotenv.dotenv-vscode", // Gestionnaire de variable d'environnement
-        "saoudrizwan.claude-dev", // Extension Claude AI pour l'assistance IA
-        "github.vscode-github-actions" //Extension pour Github Actions
+        "dbaeumer.vscode-eslint", // ESLint for code linting
+        "esbenp.prettier-vscode", // Prettier for code formatting
+        "nrwl.angular-console", // Nx Console for monorepo projects (Angular/Nx)
+        "bradlc.vscode-tailwindcss", // Tailwind CSS support
+        "graphql.vscode-graphql", // GraphQL support
+        "pulumi.pulumi", // Pulumi extension for infrastructure-as-code
+        "googlecloudtools.cloudcode", // Google Cloud (GCP) tools for VS Code
+        "ms-azuretools.vscode-docker", // Docker interface in VS Code
+        "spmeesseman.vscode-taskexplorer", // Task Explorer for VS Code
+        "Equinusocio.vsc-material-theme", // Material Design theme for the UI
+        "postman.postman-for-vscode", // Postman extension for API requests
+        "pnpm.vscode-pnpm", // PNPM extension for package management
+        "wayou.vscode-todo-highlight", // Highlights TODO comments
+        "dotenv.dotenv-vscode", // Environment variable manager
+        "saoudrizwan.claude-dev", // Claude AI extension for AI assistance
+        "github.vscode-github-actions" // Extension for GitHub Actions
       ],
-      // Paramètres par défaut pour VS Code dans cet environnement
+      // Default settings for VS Code in this environment
       "settings": {
-        // Définit Prettier comme le formateur par défaut
+        // Sets Prettier as the default formatter
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        // Active le formatage automatique à la sauvegarde
+        // Enables format on save
         "editor.formatOnSave": true,
-        // Applique le thème Material Design pour les icônes
+        // Applies the Material Design icon theme
         "workbench.iconTheme": "eq-material-theme-icons",
-        // Applique le thème Material Design pour l'UI
+        // Applies the Material Design color theme for the UI
         "workbench.colorTheme": "Material Theme Darker"
       }
     }
   },
 
-  // Configuration des ports exposés pour les applications dans le conteneur
+  // Configuration of exposed ports for applications in the container
   "forwardPorts": [
-    3000, // Port pour les applications Next.js
-    3001 // Port pour les API ou passerelles principales (par exemple, NestJS)
+    3000, // Port for Next.js applications
+    3001 // Port for APIs or main gateways (e.g., NestJS)
   ],
 
-  // Définit l'utilisateur non-root utilisé pour se connecter au conteneur
+  // Sets the non-root user used to connect to the container
   "remoteUser": "node",
 
-  // Commandes post-création ou post-démarrage (non définies pour l'instant)
-  // "postCreateCommand": Pas de commande définie avant le démarrage
-  // Déplace automatiquement memory-bank.md dans le dossier Rules de l'utilisateur au démarrage du conteneur
+  // Post-creation or post-start commands (none defined for now)
+  // "postCreateCommand": No command defined before startup
+  // Automatically moves memory-bank.md to the user's Rules folder on container startup
   "postStartCommand": "if [ -f .clinerules/_memory-bank.md ]; then mkdir -p ~/Documents/Cline/Rules && cp -f .clinerules/_memory-bank.md ~/Documents/Cline/Rules/memory-bank.md; fi"
 }

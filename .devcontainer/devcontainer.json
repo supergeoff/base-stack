@@ -63,9 +63,9 @@
   ],
 
   // Définit l'utilisateur non-root utilisé pour se connecter au conteneur
-  "remoteUser": "node",
+  "remoteUser": "node"
 
   // Commandes post-création ou post-démarrage (non définies pour l'instant)
-  "postCreateCommand": "mkdir -p ~/.vscode-remote/data/Machine && echo '{\"locale\": \"en\"}' > ~/.vscode-remote/data/Machine/argv.json"
+  // "postCreateCommand": Pas de commande définie avant le démarrage
   // "postStartCommand": Pas de commande définie après le démarrage
 }

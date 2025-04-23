@@ -1,78 +1,76 @@
-// .devcontainer/devcontainer.json
 {
-  // Nom de votre environnement de développement (affiché dans VS Code / Codespaces)
-  "name": "Monorepo Stack (Nx + Node 22 + TS + GCP + Pulumi)",
+  // Nom de l'environnement de développement (s'affiche dans VS Code et Codespaces)
+  "name": "Monorepo Stack (Nx + Node 22 + TypeScript + GCP + Pulumi)",
 
-  // L'image Docker de base à utiliser
+  // Image Docker de base utilisée pour l'environnement de développement
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
 
-  // Fonctionnalités Dev Containers à ajouter à l'image de base
+  // Fonctionnalités supplémentaires à inclure dans le conteneur via Dev Containers
   "features": {
-    // Permet d'utiliser la commande 'docker' depuis l'intérieur du conteneur
-    "ghcr.io/devcontainers/features/docker-in-docker:latest": {
-    },
-    // Install globalement pnpm
+    // Permet d'exécuter Docker à l'intérieur du conteneur (Docker-in-Docker)
+    "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
+    // Installe le gestionnaire de paquets PNPM en global
     "ghcr.io/devcontainers-extra/features/npm-package:latest": {
       "package": "pnpm"
     },
-    // Installe la GitHub CLI
-    "ghcr.io/devcontainers/features/github-cli:latest": {
-    },
-    // Installe la Pulumi CLI
-    "ghcr.io/devcontainers-extra/features/pulumi:latest": {
-    },
-    // Instale la Google CLI
-    "ghcr.io/supergeoff/features/google-cli:latest": {
-    }
+    // Installe la GitHub CLI pour interagir avec GitHub depuis la ligne de commande
+    "ghcr.io/devcontainers/features/github-cli:latest": {},
+    // Installe la CLI Pulumi pour l'infrastructure-as-code
+    "ghcr.io/devcontainers-extra/features/pulumi:latest": {},
+    // Installe la CLI Google Cloud pour interagir avec les services Google Cloud
+    "ghcr.io/supergeoff/features/google-cli:latest": {}
   },
 
-  // Personnalisations spécifiques aux outils
+  // Personnalisations spécifiques aux outils et extensions
   "customizations": {
-    // Configuration pour VS Code
+    // Configuration dédiée à VS Code
     "vscode": {
-      // Liste des extensions VS Code à installer automatiquement
+      // Liste des extensions VS Code installées automatiquement dans l'environnement
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "nrwl.angular-console", // Nx Console
-        "bradlc.vscode-tailwindcss",
-        "graphql.vscode-graphql",
-        "pulumi.pulumi",
-        "googlecloudtools.cloudcode", // GCP Tools
-        "-Google.geminicodeassist", // Disable Gemini
-        "ms-azuretools.vscode-docker", // Docker UI
-        "formulahendry.code-runner",
-        "spmeesseman.vscode-taskexplorer",
-        "Equinusocio.vsc-material-theme", // Material Theme + Icons
-        "postman.postman-for-vscode",
-        "eamodio.gitlens",
-        "mhutchie.git-graph",
-        "pnpm.vscode-pnpm",
-        "wayou.vscode-todo-highlight",
-        "dotenv.dotenv-vscode",
-        "saoudrizwan.claude-dev" // Claude AI
+        "dbaeumer.vscode-eslint", // ESLint pour le linting du code
+        "esbenp.prettier-vscode", // Prettier pour le formatage du code
+        "nrwl.angular-console", // Nx Console pour les projets monorepo (Angular/Nx)
+        "bradlc.vscode-tailwindcss", // Support Tailwind CSS
+        "graphql.vscode-graphql", // Support GraphQL
+        "pulumi.pulumi", // Extension Pulumi pour l'infrastructure-as-code
+        "googlecloudtools.cloudcode", // Outils Google Cloud (GCP) pour VS Code
+        "-Google.geminicodeassist", // Désactive l'extension Gemini
+        "ms-azuretools.vscode-docker", // Interface Docker dans VS Code
+        "formulahendry.code-runner", // Exécution rapide de snippets de code
+        "spmeesseman.vscode-taskexplorer", // Explorateur de tâches pour VS Code
+        "Equinusocio.vsc-material-theme", // Thème Material Design pour l'UI
+        "postman.postman-for-vscode", // Extension Postman pour les requêtes API
+        "eamodio.gitlens", // Outils avancés pour Git
+        "mhutchie.git-graph", // Visualisation des branches Git
+        "pnpm.vscode-pnpm", // Extension PNPM pour la gestion des paquets
+        "wayou.vscode-todo-highlight", // Mise en évidence des commentaires TODO
+        "dotenv.dotenv-vscode", // Support pour les fichiers .env
+        "saoudrizwan.claude-dev" // Extension Claude AI pour l'assistance IA
       ],
-      // Paramètres VS Code par défaut pour cet environnement
+      // Paramètres par défaut pour VS Code dans cet environnement
       "settings": {
-        // Définir Prettier comme formateur par défaut
+        // Définit Prettier comme le formateur par défaut
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        // Activer le formatage à la sauvegarde
+        // Active le formatage automatique à la sauvegarde
         "editor.formatOnSave": true,
-        // Appliquer le thème Material (UI et Icônes) par défaut
-        // Note: 'material-theme-icons-darker' est un ID potentiel pour les icônes de ce thème
+        // Applique le thème Material Design pour les icônes
         "workbench.iconTheme": "material-theme-icons-darker",
-        "workbench.colorTheme": "Material Theme Darker High Contrast" // Exemple de thème UI
+        // Applique le thème Material Design pour l'UI
+        "workbench.colorTheme": "Material Theme Darker High Contrast"
       }
     }
   },
 
-  // Ports à transférer automatiquement du conteneur vers la machine locale
-  "forwardPorts": [3000, 3001], // Port Next.js et Port NestJS/Gateway principal
+  // Configuration des ports exposés pour les applications dans le conteneur
+  "forwardPorts": [
+    3000, // Port pour les applications Next.js
+    3001  // Port pour les API ou passerelles principales (par exemple, NestJS)
+  ],
 
-  // Définit l'utilisateur avec lequel VS Code se connectera dans le conteneur
-  // 'node' est l'utilisateur non-root commun dans l'image mcr.microsoft.com/devcontainers/typescript-node
+  // Définit l'utilisateur non-root utilisé pour se connecter au conteneur
   "remoteUser": "node"
 
-  // 'postCreateCommand': Pas défini pour l'instant
-  // 'postStartCommand': Pas défini pour l'instant
+  // Commandes post-création ou post-démarrage (non définies pour l'instant)
+  // "postCreateCommand": Pas de commande définie après la création
+  // "postStartCommand": Pas de commande définie après le démarrage
 }

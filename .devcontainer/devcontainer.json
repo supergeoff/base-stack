@@ -54,9 +54,9 @@
         // Active le formatage automatique à la sauvegarde
         "editor.formatOnSave": true,
         // Applique le thème Material Design pour les icônes
-        "workbench.iconTheme": "material-theme-icons-darker",
+        "workbench.iconTheme": "eq-material-theme-icons",
         // Applique le thème Material Design pour l'UI
-        "workbench.colorTheme": "Material Theme Darker High Contrast"
+        "workbench.colorTheme": "Material Theme Darker"
       }
     }
   },
@@ -64,7 +64,7 @@
   // Configuration des ports exposés pour les applications dans le conteneur
   "forwardPorts": [
     3000, // Port pour les applications Next.js
-    3001  // Port pour les API ou passerelles principales (par exemple, NestJS)
+    3001 // Port pour les API ou passerelles principales (par exemple, NestJS)
   ],
 
   // Définit l'utilisateur non-root utilisé pour se connecter au conteneur

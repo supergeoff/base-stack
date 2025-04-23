@@ -11,7 +11,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
     // Installe le gestionnaire de paquets PNPM en global
     "ghcr.io/devcontainers-extra/features/npm-packages:latest": {
-      "packages": "pnpm@latest, nx@latest"
+      "packages": "pnpm,nx"
     },
     // Installe la GitHub CLI pour interagir avec GitHub depuis la ligne de commande
     "ghcr.io/devcontainers/features/github-cli:latest": {},

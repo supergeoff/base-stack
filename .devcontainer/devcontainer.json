@@ -34,17 +34,12 @@
         "graphql.vscode-graphql", // Support GraphQL
         "pulumi.pulumi", // Extension Pulumi pour l'infrastructure-as-code
         "googlecloudtools.cloudcode", // Outils Google Cloud (GCP) pour VS Code
-        "-Google.geminicodeassist", // Désactive l'extension Gemini
         "ms-azuretools.vscode-docker", // Interface Docker dans VS Code
-        "formulahendry.code-runner", // Exécution rapide de snippets de code
         "spmeesseman.vscode-taskexplorer", // Explorateur de tâches pour VS Code
         "Equinusocio.vsc-material-theme", // Thème Material Design pour l'UI
         "postman.postman-for-vscode", // Extension Postman pour les requêtes API
-        "eamodio.gitlens", // Outils avancés pour Git
-        "mhutchie.git-graph", // Visualisation des branches Git
         "pnpm.vscode-pnpm", // Extension PNPM pour la gestion des paquets
         "wayou.vscode-todo-highlight", // Mise en évidence des commentaires TODO
-        "dotenv.dotenv-vscode", // Support pour les fichiers .env
         "saoudrizwan.claude-dev" // Extension Claude AI pour l'assistance IA
       ],
       // Paramètres par défaut pour VS Code dans cet environnement

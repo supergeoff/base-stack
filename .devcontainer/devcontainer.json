@@ -11,6 +11,10 @@
     // Permet d'utiliser la commande 'docker' depuis l'intérieur du conteneur
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {
     },
+    // Install globalement pnpm
+    "ghcr.io/devcontainers-extra/features/npm-package:latest": {
+      "package": "pnpm"
+    },
     // Installe la GitHub CLI
     "ghcr.io/devcontainers/features/github-cli:latest": {
     },
@@ -65,15 +69,10 @@
   // Ports à transférer automatiquement du conteneur vers la machine locale
   "forwardPorts": [3000, 3001], // Port Next.js et Port NestJS/Gateway principal
 
-  // Commande pour installer pnpm globalement (car non inclus dans l'image de base)
-  // 'updateContentCommand' est exécuté après le clonage du repo mais avant la finalisation
-  // Utilise npm (qui est présent) pour installer pnpm. 'sudo' peut être nécessaire.
-  "updateContentCommand": "sudo npm install -g pnpm",
-
   // Définit l'utilisateur avec lequel VS Code se connectera dans le conteneur
   // 'node' est l'utilisateur non-root commun dans l'image mcr.microsoft.com/devcontainers/typescript-node
   "remoteUser": "node"
 
-  // 'postCreateCommand': Pas défini pour l'instant (pnpm install manuel)
+  // 'postCreateCommand': Pas défini pour l'instant
   // 'postStartCommand': Pas défini pour l'instant
 }

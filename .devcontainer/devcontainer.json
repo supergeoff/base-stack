@@ -41,7 +41,8 @@
         "pnpm.vscode-pnpm", // Extension PNPM pour la gestion des paquets
         "wayou.vscode-todo-highlight", // Mise en évidence des commentaires TODO
         "dotenv.dotenv-vscode", // Gestionnaire de variable d'environnement
-        "saoudrizwan.claude-dev" // Extension Claude AI pour l'assistance IA
+        "saoudrizwan.claude-dev", // Extension Claude AI pour l'assistance IA
+        "github.vscode-github-actions" //Extension pour Github Actions
       ],
       // Paramètres par défaut pour VS Code dans cet environnement
       "settings": {

@@ -70,5 +70,5 @@
   // Commandes post-création ou post-démarrage (non définies pour l'instant)
   // "postCreateCommand": Pas de commande définie avant le démarrage
   // Déplace automatiquement memory-bank.md dans le dossier Rules de l'utilisateur au démarrage du conteneur
-  "postStartCommand": "if [ -f .clinerules/memory-bank.md ]; then mkdir -p ~/Documents/Cline/Rules && mv -f .clinerules/memory-bank.md ~/Documents/Cline/Rules/memory-bank.md; fi"
+  "postStartCommand": "if [ -f .clinerules/_memory-bank.md ]; then mkdir -p ~/Documents/Cline/Rules && cp -f .clinerules/_memory-bank.md ~/Documents/Cline/Rules/memory-bank.md; fi"
 }

@@ -1,76 +1,59 @@
-# Template Dev Container: Monorepo Stack (Nx + Node 22 + TS + GCP + Pulumi)
+# Dev Container Template: Monorepo Stack (Nx + Node 22 + TS + GCP + Pulumi)
 
-Ce dépôt sert de template de base pour démarrer rapidement de nouveaux projets en utilisant une stack technologique moderne et cohérente, encapsulée dans un environnement de développement conteneurisé (Dev Container).
+This repository serves as a base template for quickly starting new projects using a modern and cohesive technology stack, encapsulated in a containerized development environment (Dev Container).
 
-L'objectif est de fournir un environnement prêt à l'emploi avec les outils essentiels pré-configurés pour un développement efficace au sein d'un monorepo géré par Nx.
+The goal is to provide a ready-to-use environment with essential tools pre-configured for efficient development within an Nx-managed monorepo.
 
-## Stack Technologique Cible
+## Target Technology Stack
 
-Ce Dev Container est configuré pour supporter les technologies suivantes :
+This Dev Container is configured to support the following technologies:
 
-- **Monorepo:** Nx (via l'extension Nx Console)
+- **Monorepo:** Nx (via the Nx Console extension)
 - **Runtime:** Node.js v22
-- **Langage:** TypeScript
+- **Language:** TypeScript
 - **Cloud:** Google Cloud Platform (GCP)
 - **Infrastructure as Code:** Pulumi
-- **Gestionnaire de paquets:** `pnpm` (préinstallé dans le conteneur)
+- **Package Manager:** `pnpm` (preinstalled in the container)
 
-## Fonctionnalités du Dev Container
+## Dev Container Features
 
-- **Image de Base:** `mcr.microsoft.com/devcontainers/typescript-node:22`
-- **Outils CLI Inclus:**
-  - Docker (via montage du socket Docker de l'hôte - `docker-in-docker` feature)
+- **Base Image:** `mcr.microsoft.com/devcontainers/typescript-node:22`
+- **Included CLI Tools:**
+  - Docker (via host Docker socket mounting - `docker-in-docker` feature)
   - GitHub CLI (`gh`)
   - Pulumi CLI (`pulumi`)
   - Google Cloud CLI (`gcloud`)
 
-## Configuration VS Code
+## VS Code Configuration
 
-L'environnement est pré-configuré pour VS Code avec :
+The environment is pre-configured for VS Code with:
 
-- **Extensions Essentielles:**
+- **Essential Extensions:**
   - Linting & Formatting: ESLint, Prettier
-  - Frameworks & Outils: Nx Console, Tailwind CSS IntelliSense, GraphQL
+  - Frameworks & Tools: Nx Console, Tailwind CSS IntelliSense, GraphQL
   - Cloud & Infra: Pulumi, Google Cloud Code, Docker
   - Git: GitLens, Git Graph
-  - Utilitaires: Code Runner, Task Explorer, PNPM, TODO Highlight, DotEnv
-  - Thème: Material Theme + Icons
-  - AI Assistants: Claude AI (Gemini est désactivé)
-  - Autres: Postman
-- **Paramètres Clés:**
-  - **Formatteur par défaut:** Prettier (`esbenp.prettier-vscode`)
-  - **Formatage à la sauvegarde:** Activé (`editor.formatOnSave: true`)
-  - **Thème:** Material Theme Darker High Contrast (UI) & Material Theme Icons Darker (Icônes)
+  - Utilities: Code Runner, Task Explorer, PNPM, TODO Highlight, DotEnv
+  - Theme: Material Theme + Icons
+  - AI Assistants: Claude AI (Gemini is disabled)
+  - Others: Postman
+- **Key Settings:**
+  - **Default Formatter:** Prettier (`esbenp.prettier-vscode`)
+  - **Format on Save:** Enabled (`editor.formatOnSave: true`)
+  - **Theme:** Material Theme Darker High Contrast (UI) & Material Theme Icons Darker (Icons)
 
-## Ports Transférés
+## Forwarded Ports
 
-Les ports suivants sont automatiquement transférés de l'intérieur du conteneur vers votre machine locale :
+The following ports are automatically forwarded from inside the container to your local machine:
 
-- `3000`: Port souvent utilisé par des applications frontend (ex: Next.js)
-- `3001`: Port potentiel pour une API ou un service backend (ex: NestJS)
+- `3000`: Port often used by frontend applications (e.g., Next.js)
+- `3001`: Potential port for an API or backend service (e.g., NestJS)
 
-## Comment Utiliser ce Template
+## How to Use This Template
 
-1.  **Créer un nouveau dépôt:** Cliquez sur le bouton "Use this template" sur la page GitHub de ce dépôt.
-2.  **Cloner votre nouveau dépôt:** Clonez le dépôt que vous venez de créer sur votre machine locale.
+1.  **Create a new repository:** Click on the "Use this template" button on this repository's GitHub page.
+2.  **Clone your new repository:** Clone the repository you just created to your local machine.
     ```bash
-    git clone <url-de-votre-nouveau-repo>
-    cd <nom-de-votre-nouveau-repo>
+    git clone <your-new-repo-url>
+    cd <your-new-repo-name>
     ```
-3.  **Ouvrir dans VS Code:** Ouvrez le dossier cloné avec Visual Studio Code.
-4.  **Rouvrir dans le Conteneur:** VS Code devrait détecter le fichier `.devcontainer/devcontainer.json` et vous proposer de "Reopen in Container" (Rouvrir dans le conteneur). Cliquez sur ce bouton.
-5.  **Attendre la construction:** La première fois, le conteneur sera construit (cela peut prendre quelques minutes). Les fois suivantes, le démarrage sera beaucoup plus rapide.
-6.  **Commencer à développer:** Une fois le conteneur démarré et VS Code connecté, votre environnement de développement est prêt !
-
-## Prochaines Étapes (Après Démarrage du Conteneur)
-
-1.  **Initialiser votre projet Nx (ou autre):** Ce template fournit l'environnement, mais pas encore le code source. Vous devrez initialiser votre workspace Nx ou copier votre projet existant ici.
-    ```bash
-    # Exemple pour créer un nouveau workspace Nx avec pnpm
-    pnpm create nx-workspace@latest my-org
-    ```
-2.  **Installer les dépendances:** Une fois votre `package.json` en place :
-    ```bash
-    pnpm install
-    ```
-3.  **Coder !**
